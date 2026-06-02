@@ -30,7 +30,7 @@ nav{background:var(--cream);border-bottom:0.5px solid var(--bds);display:flex;al
 .btn1:hover{background:var(--moss)}
 .btn2{font-family:'Libre Baskerville',serif;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--bark);background:transparent;border:0.5px solid var(--bds);padding:.75rem 1.75rem;cursor:pointer;transition:border-color .2s;text-decoration:none;display:inline-block}
 .btn2:hover{border-color:var(--bark)}
-.hbot{background:var(--parch);overflow:hidden}
+.hbot{background:var(--parch);overflow:hidden;max-height:320px}
 .hbot img{width:100%;height:100%;object-fit:cover;opacity:0.85;display:block}
 .obj{background:var(--bark);padding:2.5rem 3rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
 .oi{border-left:0.5px solid rgba(245,240,232,.15);padding-left:1.25rem}
@@ -62,14 +62,14 @@ section{padding:4rem 3.5rem}
 .dot.a{background:var(--rose)}
 #projects{background:var(--parch);border-top:0.5px solid var(--bd);padding:4rem 0}
 .ph{padding:0 3.5rem 2.5rem}
-.pg{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bd)}
-.pc{background:var(--parch);display:flex;flex-direction:column}
-.pm{aspect-ratio:16/9;background:#2a2016;position:relative;overflow:hidden;cursor:pointer}
+.pg{display:flex;flex-direction:column;gap:1px;background:var(--bd)}
+.pc{background:var(--cream);display:grid;grid-template-columns:420px 1fr;min-height:280px}
+.pm{background:#2a2016;position:relative;overflow:hidden;cursor:pointer;min-height:280px}
 .pm img{width:100%;height:100%;object-fit:cover;display:block}
 .pmp{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;padding:1.5rem;text-align:center;position:absolute;inset:0}
 .ptag{font-family:'Libre Baskerville',serif;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,.4);line-height:1.6}
 .plink-label{font-family:'Libre Baskerville',serif;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:rgba(155,79,92,.75);margin-top:.25rem}
-.pb{padding:1.5rem 1.75rem;flex:1;background:var(--cream);border-top:0.5px solid var(--bd)}
+.pb{padding:2rem 2.5rem;background:var(--cream);border-left:0.5px solid var(--bd);display:flex;flex-direction:column;justify-content:center}
 .pc2{font-family:'Libre Baskerville',serif;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);margin-bottom:.6rem;display:block}
 .pt{font-family:'IM Fell English',serif;font-size:1.3rem;color:var(--bark);line-height:1.2;margin-bottom:.6rem}
 .pd{font-size:.9rem;color:var(--faded);line-height:1.8;margin-bottom:1rem}
@@ -93,7 +93,9 @@ footer{background:var(--bark);padding:2.5rem 3.5rem;display:flex;align-items:fle
 .fc{font-size:.8rem;color:rgba(245,240,232,.3)}
 .fss{font-family:'Libre Baskerville',serif;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.3)}
 @media(max-width:760px){
-  .hero,.ag,.pg{grid-template-columns:1fr}
+  .hero,.ag{grid-template-columns:1fr}
+  .pc{grid-template-columns:1fr}
+  .pm{min-height:220px}
   .hbot{min-height:280px}
   .obj{grid-template-columns:1fr 1fr;padding:2rem 1.5rem}
   .sl{grid-template-columns:110px 1fr}
@@ -115,6 +117,31 @@ footer{background:var(--bark);padding:2.5rem 3.5rem;display:flex;align-items:fle
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
+
+
+<div class="hero">
+  <div class="ht">
+    <p class="eye">Feminist Environmental Research-Creation</p>
+    <h1 class="h1">WildROSE<br>Collective</h1>
+    <p class="sub">Researching Our Shared Environments</p>
+    <p class="hdesc">A collaborative interdisciplinary team of humanities scholars, social scientists, and scientists, fusing history, citizen science, poetics, and art to address the urgency of the Anthropocene.</p>
+    <div class="hcta">
+      <a href="#projects" class="btn1">View Projects</a>
+      <a href="#about" class="btn2">Meet the Team</a>
+    </div>
+  </div>
+  <div class="hbot">
+    <img src="swamprose.jpg" alt="Swamp rose botanical illustration" style="max-height:320px;width:100%;object-fit:cover;object-position:center;">
+  </div>
+</div>
+
+
+<div class="obj">
+  <div class="oi"><span class="on">Objective 1</span><span class="ol">Epistemological Innovation</span><p class="ot">Inventing and testing new aesthetic and expressive forms &mdash; sound, AR/VR, immersive installations &mdash; that make pressing symptoms of the Anthropocene open to deep consideration.</p></div>
+  <div class="oi"><span class="on">Objective 2</span><span class="ol">Methodological Development</span><p class="ot">Marrying historical and ecological analysis with artistic experimentation, theorizing how sited feminist ecological research-creation generates radical insight in times of emergency.</p></div>
+  <div class="oi"><span class="on">Objective 3</span><span class="ol">Pedagogical Innovation</span><p class="ot">Working closely with HQP to cultivate professional interdisciplinary skills in environmental humanities, research-creation, and digital stewardship.</p></div>
+  <div class="oi"><span class="on">Objective 4</span><span class="ol">Public Engagement</span><p class="ot">Building lasting partnerships among Canadian universities, cultural institutions, archives, and global networks while demonstrating the value of the humanities for engaging with environmental crisis.</p></div>
+</div>
 
 <section id="about">
   <p class="slbl">About</p>
@@ -212,28 +239,7 @@ footer{background:var(--bark);padding:2.5rem 3.5rem;display:flex;align-items:fle
   </div>
 </section>
 
-<div class="hero">
-  <div class="ht">
-    <p class="eye">Feminist Environmental Research-Creation</p>
-    <h1 class="h1">WildROSE<br>Collective</h1>
-    <p class="sub">Researching Our Shared Environments</p>
-    <p class="hdesc">A collaborative interdisciplinary team of humanities scholars, social scientists, and scientists, fusing history, citizen science, poetics, and art to address the urgency of the Anthropocene.</p>
-    <div class="hcta">
-      <a href="#projects" class="btn1">View Projects</a>
-      <a href="#about" class="btn2">Meet the Team</a>
-    </div>
-  </div>
-  <div class="hbot">
-    <img src="swamprose.jpg" alt="Swamp rose botanical illustration">
-  </div>
-</div>
 
-<div class="obj">
-  <div class="oi"><span class="on">Objective 1</span><span class="ol">Epistemological Innovation</span><p class="ot">Inventing and testing new aesthetic and expressive forms &mdash; sound, AR/VR, immersive installations &mdash; that make pressing symptoms of the Anthropocene open to deep consideration.</p></div>
-  <div class="oi"><span class="on">Objective 2</span><span class="ol">Methodological Development</span><p class="ot">Marrying historical and ecological analysis with artistic experimentation, theorizing how sited feminist ecological research-creation generates radical insight in times of emergency.</p></div>
-  <div class="oi"><span class="on">Objective 3</span><span class="ol">Pedagogical Innovation</span><p class="ot">Working closely with HQP to cultivate professional interdisciplinary skills in environmental humanities, research-creation, and digital stewardship.</p></div>
-  <div class="oi"><span class="on">Objective 4</span><span class="ol">Public Engagement</span><p class="ot">Building lasting partnerships among Canadian universities, cultural institutions, archives, and global networks while demonstrating the value of the humanities for engaging with environmental crisis.</p></div>
-</div>
 <div id="projects">
   <div class="ph">
     <p class="slbl">Projects</p>
@@ -353,12 +359,14 @@ footer{background:var(--bark);padding:2.5rem 3.5rem;display:flex;align-items:fle
   </div>
 </div>
 
+
 <section id="contact" style="text-align:center">
   <p class="slbl">Contact</p>
   <h2 class="stit">Get in Touch</h2>
   <p class="sbod" style="margin:0 auto 2.5rem">We welcome inquiries from researchers, artists, institutions, and community partners.</p>
   <a href="mailto:wildrosecollective@protonmail.com" class="btn1">Send Us an Email</a>
 </section>
+
 
 <footer>
   <div>
@@ -370,6 +378,7 @@ footer{background:var(--bark);padding:2.5rem 3.5rem;display:flex;align-items:fle
     <p class="fc">&copy; 2025 Wildrose Collective</p>
   </div>
 </footer>
+
 
 <script>
 // TEAM SLIDESHOW

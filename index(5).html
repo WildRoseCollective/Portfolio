@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wildrose Collective</title>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#f5f0e8;--parch:#ede5d4;--bark:#3a2e1e;--moss:#4a5e3a;
+  --rose:#9b4f5c;--faded:#7a6e5e;--ink:#1e1710;
+  --bd:rgba(58,46,30,0.18);--bds:rgba(58,46,30,0.32)
+}
+body{background:var(--cream);color:var(--ink);font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;line-height:1.7}
+a{color:inherit;text-decoration:none}
+nav{background:var(--cream);border-bottom:0.5px solid var(--bds);display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;height:52px;position:sticky;top:0;z-index:50}
+.nw{font-family:'IM Fell English',serif;font-size:15px;color:var(--bark);letter-spacing:.04em}
+.nl{display:flex;gap:2rem;list-style:none}
+.nl a{font-family:'Libre Baskerville',serif;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faded);transition:color .2s}
+.nl a:hover{color:var(--bark)}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:520px}
+.ht{padding:4rem 3rem 4rem 3.5rem;border-right:0.5px solid var(--bds);display:flex;flex-direction:column;justify-content:center}
+.eye{font-family:'Libre Baskerville',serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);margin-bottom:1rem}
+.h1{font-family:'IM Fell English',serif;font-size:clamp(2.4rem,4vw,4.2rem);line-height:1.05;color:var(--bark);margin-bottom:.4rem}
+.sub{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;font-weight:300;color:var(--faded);margin-bottom:2rem}
+.hdesc{font-size:1rem;color:var(--bark);line-height:1.8;max-width:420px}
+.hcta{margin-top:2rem;display:flex;gap:.75rem;flex-wrap:wrap}
+.btn1{font-family:'Libre Baskerville',serif;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);background:var(--bark);border:none;padding:.75rem 1.75rem;cursor:pointer;transition:background .2s;text-decoration:none;display:inline-block}
+.btn1:hover{background:var(--moss)}
+.btn2{font-family:'Libre Baskerville',serif;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--bark);background:transparent;border:0.5px solid var(--bds);padding:.75rem 1.75rem;cursor:pointer;transition:border-color .2s;text-decoration:none;display:inline-block}
+.btn2:hover{border-color:var(--bark)}
+.hbot{background:var(--parch);overflow:hidden}
+.hbot img{width:100%;height:100%;object-fit:cover;opacity:0.85;display:block}
+.obj{background:var(--bark);padding:2.5rem 3rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.oi{border-left:0.5px solid rgba(245,240,232,.15);padding-left:1.25rem}
+.on{font-family:'IM Fell English',serif;font-size:1.4rem;color:var(--rose);display:block;margin-bottom:.3rem}
+.ol{font-family:'Libre Baskerville',serif;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:rgba(245,240,232,.45);display:block;margin-bottom:.6rem}
+.ot{font-size:.88rem;color:rgba(245,240,232,.78);line-height:1.7}
+section{padding:4rem 3.5rem}
+.slbl{font-family:'Libre Baskerville',serif;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--rose);margin-bottom:.6rem}
+.stit{font-family:'IM Fell English',serif;font-size:clamp(1.8rem,3vw,2.8rem);color:var(--bark);line-height:1.1;margin-bottom:1.25rem}
+.sbod{font-size:1rem;color:var(--faded);max-width:600px;line-height:1.85}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:2.5rem}
+.aq{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;font-weight:300;color:var(--bark);border-left:2px solid var(--rose);padding-left:1.25rem;margin-bottom:1.5rem;line-height:1.6}
+.ssh{display:flex;align-items:center;justify-content:space-between;border-bottom:0.5px solid var(--bd);padding-bottom:.75rem;margin-bottom:1.75rem;margin-top:3rem}
+.sslbl{font-family:'Libre Baskerville',serif;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--faded)}
+.ssc{display:flex;gap:.4rem}
+.ssb{width:30px;height:30px;border:0.5px solid var(--bds);background:transparent;cursor:pointer;font-size:13px;color:var(--bark);display:flex;align-items:center;justify-content:center;font-family:serif;transition:background .2s}
+.ssb:hover{background:var(--parch)}
+.svp{overflow:hidden}
+.str{display:flex;transition:transform .5s cubic-bezier(.4,0,.2,1)}
+.sl{min-width:100%;display:grid;grid-template-columns:160px 1fr;gap:1.75rem;align-items:start}
+.mp{aspect-ratio:3/4;background:var(--parch);border:0.5px solid var(--bd);display:flex;align-items:center;justify-content:center;font-family:'IM Fell English',serif;font-size:2.5rem;color:var(--faded);overflow:hidden}
+.mp img{width:100%;height:100%;object-fit:cover;filter:grayscale(20%) sepia(10%)}
+.mn{font-family:'IM Fell English',serif;font-size:1.45rem;color:var(--bark);margin-bottom:.15rem}
+.mr{font-family:'Libre Baskerville',serif;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);display:block;margin-bottom:.75rem}
+.mi{font-size:.88rem;color:var(--faded);font-style:italic;margin-bottom:1rem}
+.mb{font-size:.95rem;color:var(--bark);line-height:1.8}
+.dots{display:flex;gap:5px;margin-top:1.25rem}
+.dot{width:5px;height:5px;background:var(--bd);border-radius:50%;cursor:pointer;transition:background .2s}
+.dot.a{background:var(--rose)}
+#projects{background:var(--parch);border-top:0.5px solid var(--bd);padding:4rem 0}
+.ph{padding:0 3.5rem 2.5rem}
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--bd)}
+.pc{background:var(--parch);display:flex;flex-direction:column}
+.pm{aspect-ratio:16/9;background:#2a2016;position:relative;overflow:hidden;cursor:pointer}
+.pm img{width:100%;height:100%;object-fit:cover;display:block}
+.pmp{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;padding:1.5rem;text-align:center;position:absolute;inset:0}
+.ptag{font-family:'Libre Baskerville',serif;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,.4);line-height:1.6}
+.plink-label{font-family:'Libre Baskerville',serif;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:rgba(155,79,92,.75);margin-top:.25rem}
+.pb{padding:1.5rem 1.75rem;flex:1;background:var(--cream);border-top:0.5px solid var(--bd)}
+.pc2{font-family:'Libre Baskerville',serif;font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--rose);margin-bottom:.6rem;display:block}
+.pt{font-family:'IM Fell English',serif;font-size:1.3rem;color:var(--bark);line-height:1.2;margin-bottom:.6rem}
+.pd{font-size:.9rem;color:var(--faded);line-height:1.8;margin-bottom:1rem}
+.ptags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:.85rem}
+.tag{font-family:'Libre Baskerville',serif;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--faded);border:0.5px solid var(--bd);padding:2px 7px}
+.plink{font-family:'Libre Baskerville',serif;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--rose);border-bottom:0.5px solid var(--rose);padding-bottom:2px;display:inline-block}
+.plink:hover{opacity:.7}
+.exhibit{font-family:'Libre Baskerville',serif;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--faded);margin-bottom:.85rem;line-height:1.8}
+/* FIRE AND WATER IMAGE SLIDESHOW */
+.fw-slides{position:relative;width:100%;height:100%;overflow:hidden}
+.fw-slides img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease}
+.fw-slides img.fw-active{opacity:1}
+.fw-dots{position:absolute;bottom:.6rem;left:50%;transform:translateX(-50%);display:flex;gap:5px;z-index:2}
+.fw-dot{width:5px;height:5px;background:rgba(245,240,232,.35);border-radius:50%;cursor:pointer;transition:background .2s;border:none;padding:0}
+.fw-dot.fw-a{background:rgba(245,240,232,.85)}
+#contact{background:var(--cream);border-top:0.5px solid var(--bd)}
+footer{background:var(--bark);padding:2.5rem 3.5rem;display:flex;align-items:flex-start;justify-content:space-between;border-top:0.5px solid rgba(245,240,232,.1)}
+.fw-label{font-family:'IM Fell English',serif;font-size:1.25rem;color:var(--cream);margin-bottom:.4rem}
+.fs{font-size:.85rem;font-style:italic;color:rgba(245,240,232,.4);max-width:260px;line-height:1.6}
+.fr{text-align:right;display:flex;flex-direction:column;align-items:flex-end;gap:.6rem}
+.fc{font-size:.8rem;color:rgba(245,240,232,.3)}
+.fss{font-family:'Libre Baskerville',serif;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.3)}
+@media(max-width:760px){
+  .hero,.ag,.pg{grid-template-columns:1fr}
+  .hbot{min-height:280px}
+  .obj{grid-template-columns:1fr 1fr;padding:2rem 1.5rem}
+  .sl{grid-template-columns:110px 1fr}
+  section{padding:3rem 1.5rem}
+  nav{padding:0 1.5rem}
+  .ph{padding:0 1.5rem 2rem}
+  footer{flex-direction:column;gap:1.5rem;padding:2rem 1.5rem}
+  .fr{align-items:flex-start;text-align:left}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nw">WildROSE Collective</span>
+  <ul class="nl">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section id="about">
+  <p class="slbl">About</p>
+  <h2 class="stit">Who We Are</h2>
+  <div class="ag">
+    <div>
+      <p class="sbod">The WildROSE Collective is an interdisciplinary team of scholar/artists who are united by a shared experience of urgency in the climate emergency. We believe that the polycrisis of the Anthropocene demands forms of knowing and making that are sited, grounded, and feminist &mdash; attending to the particular places, histories, and bodies that environmental crisis presses upon. We fuse poetics with physics, botany and data science, citizen science and critical theory, always in service of more just relations with the living world.</p>
+    </div>
+    <div>
+      <p class="sbod">Our interdisciplinary work together over past projects including with the award-winning Decameron Collective has spanned VR installations, sound art, documentary film, projection and installation art, all followed by rigorous peer-reviewed scholarship. We are committed to training the next generation of environmental humanities researchers while building durable public partnerships.</p>
+      <br><br>
+      <p class="sbod" style="font-style:italic">Affiliated institutions include Toronto Metropolitan University, Athabasca University, Ontario Tech University, University of Waterloo, York University, and the Canadian Research Knowledge Network.</p>
+    </div>
+  </div>
+
+  <div class="ssh">
+    <span class="sslbl" id="slideLabel">Research Team &mdash; 1 of 6</span>
+    <div class="ssc">
+      <button class="ssb" id="prevBtn" aria-label="Previous">&#8592;</button>
+      <button class="ssb" id="nextBtn" aria-label="Next">&#8594;</button>
+    </div>
+  </div>
+  <div class="svp">
+    <div class="str" id="track">
+
+      <div class="sl">
+        <div class="mp"><img src="MoniqueTschofen.jpeg" alt="Monique Tschofen"></div>
+        <div>
+          <h3 class="mn">Monique Tschofen</h3>
+          <span class="mr">Co-Principal Investigator</span>
+          <p class="mi">Toronto Metropolitan University &middot; English</p>
+          <p class="mb">Monique Tschofen is an interdisciplinary scholar, digital storyteller, and filmmaker whose work spans Canadian literature and culture, feminist and queer theory, environmental humanities, and digital media. With other members of the WildROSE Collective and the Decameron Collective, she has developed award-winning research-creation projects at the intersection of technology, ecology, and art. Monique leads the Wildrose Collective's theoretical and methodological innovations in feminist ecological research-creation.</p>
+        </div>
+      </div>
+
+      <div class="sl">
+        <div class="mp">JA</div>
+        <div>
+          <h3 class="mn">Jolene Armstrong</h3>
+          <span class="mr">Co-Principal Investigator</span>
+          <p class="mi">Athabasca University &middot; English</p>
+          <p class="mb">Jolene Armstrong researches Indigenous literature, environmental justice, and the intersections of colonialism and ecology in Northern Alberta. Her critical and creative practice draws on Indigenous methodologies to reframe dominant narratives about land, water, and community resilience. She guides cross-cultural and cross-historical dimensions of the research.</p>
+        </div>
+      </div>
+
+      <div class="sl">
+        <div class="mp"><img src="AJoosse_portrait_square.jpg" alt="Angela Joosse"></div>
+        <div>
+          <h3 class="mn">Angela Joosse</h3>
+          <span class="mr">Partner Collaborator</span>
+          <p class="mi">Canadian Research Knowledge Network</p>
+          <p class="mb">Angela Joosse brings expertise in digital infrastructure, research dissemination, and open access to the Collective. She facilitates the team's connections with Canadian library and archival networks and oversees the long-term digital stewardship of the Collective's research outputs, ensuring broad and lasting public access to the work.</p>
+        </div>
+      </div>
+
+      <div class="sl">
+        <div class="mp"><img src="headshot-hdh-1.png" alt="Hendrick de Haan"></div>
+        <div>
+          <h3 class="mn">Hendrick de Haan</h3>
+          <span class="mr">Co-Investigator</span>
+          <p class="mi">Ontario Tech University &middot; Physics</p>
+          <p class="mb">Hendrick de Haan is a physicist whose research engages biophysics, complexity science, and the material dynamics of living systems. He brings rigorous quantitative and scientific methods to the Collective's interdisciplinary inquiries and contributes original sound work to research-creation projects, including <em>Aquaphoria</em>.</p>
+        </div>
+      </div>
+
+      <div class="sl">
+        <div class="mp"><img src="mark-terry-headshot-2021-382529105.jpg" alt="Mark Terry"></div>
+        <div>
+          <h3 class="mn">Mark Terry</h3>
+          <span class="mr">Partner Collaborator</span>
+          <p class="mi">York University / UN Youth Climate Report</p>
+          <p class="mb">Mark Terry is an award-winning filmmaker and educator whose documentary practice focuses on environmental storytelling and youth climate activism. His work has screened globally and been featured in UN Youth Climate initiatives. He leads moving-image and public-facing media projects within the Collective.</p>
+        </div>
+      </div>
+
+      <div class="sl">
+        <div class="mp">LF</div>
+        <div>
+          <h3 class="mn">Lai-Tze Fan</h3>
+          <span class="mr">Co-Investigator</span>
+          <p class="mi">University of Waterloo &middot; CRC &middot; Sociology</p>
+          <p class="mb">Lai-Tze Fan holds a Canada Research Chair and works at the intersection of digital humanities, platform studies, and critical data studies. Her research examines how digital technologies mediate cultural memory, environmental knowledge, and social inequality. She leads the Collective's digital humanities methodology and pedagogical training.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="dots" id="dots">
+    <span class="dot a" data-i="0"></span>
+    <span class="dot" data-i="1"></span>
+    <span class="dot" data-i="2"></span>
+    <span class="dot" data-i="3"></span>
+    <span class="dot" data-i="4"></span>
+    <span class="dot" data-i="5"></span>
+  </div>
+</section>
+
+<div class="hero">
+  <div class="ht">
+    <p class="eye">Feminist Environmental Research-Creation</p>
+    <h1 class="h1">WildROSE<br>Collective</h1>
+    <p class="sub">Researching Our Shared Environments</p>
+    <p class="hdesc">A collaborative interdisciplinary team of humanities scholars, social scientists, and scientists, fusing history, citizen science, poetics, and art to address the urgency of the Anthropocene.</p>
+    <div class="hcta">
+      <a href="#projects" class="btn1">View Projects</a>
+      <a href="#about" class="btn2">Meet the Team</a>
+    </div>
+  </div>
+  <div class="hbot">
+    <img src="swamprose.jpg" alt="Swamp rose botanical illustration">
+  </div>
+</div>
+
+<div class="obj">
+  <div class="oi"><span class="on">Objective 1</span><span class="ol">Epistemological Innovation</span><p class="ot">Inventing and testing new aesthetic and expressive forms &mdash; sound, AR/VR, immersive installations &mdash; that make pressing symptoms of the Anthropocene open to deep consideration.</p></div>
+  <div class="oi"><span class="on">Objective 2</span><span class="ol">Methodological Development</span><p class="ot">Marrying historical and ecological analysis with artistic experimentation, theorizing how sited feminist ecological research-creation generates radical insight in times of emergency.</p></div>
+  <div class="oi"><span class="on">Objective 3</span><span class="ol">Pedagogical Innovation</span><p class="ot">Working closely with HQP to cultivate professional interdisciplinary skills in environmental humanities, research-creation, and digital stewardship.</p></div>
+  <div class="oi"><span class="on">Objective 4</span><span class="ol">Public Engagement</span><p class="ot">Building lasting partnerships among Canadian universities, cultural institutions, archives, and global networks while demonstrating the value of the humanities for engaging with environmental crisis.</p></div>
+</div>
+<div id="projects">
+  <div class="ph">
+    <p class="slbl">Projects</p>
+    <h2 class="stit">Research-Creation</h2>
+    <p class="sbod">Our projects take form as immersive installations, documentary films, sound compositions, interactive digital archives, and experimental publications &mdash; always grounded in specific ecologies and communities, always attentive to the felt experience of environmental change.</p>
+  </div>
+
+  <div class="pg">
+
+    <!-- PROJECT 1: WATER SONGS -->
+    <div class="pc">
+      <div class="pm" onclick="window.open('https://scalar.rula.info/water-songs-documenting-the-imperceptible/index','_blank')">
+        <div class="fw-slides" id="wsSlides">
+          <img src="WaterSongs.png" alt="Water Songs 1" class="fw-active">
+          <img src="watersongs2.png" alt="Water Songs 2">
+          <img src="watersongs3.png" alt="Water Songs 3">
+        </div>
+        <div class="fw-dots" id="wsDots">
+          <button class="fw-dot fw-a" data-ws="0" aria-label="Image 1"></button>
+          <button class="fw-dot" data-ws="1" aria-label="Image 2"></button>
+          <button class="fw-dot" data-ws="2" aria-label="Image 3"></button>
+        </div>
+      </div>
+      <div class="pb">
+        <span class="pc2">Jolene Armstrong &amp; Monique Tschofen</span>
+        <h3 class="pt">Water Songs: Documenting the Imperceptible</h3>
+        <p class="pd">Using ecoutic, contact, and aquatic microphones and microscopes, this project listens in on the stories that tree trunks, bark, moss, water, dirt, and stones have to tell. By making the imperceptible perceivable, it proposes a lexicon of understanding that exists outside of but alongside human language &mdash; attuning us to the livingness of everything around us.</p>
+        <div class="ptags">
+          <span class="tag">Acoustic ecology</span>
+          <span class="tag">Non-human sensing</span>
+          <span class="tag">Climate crisis</span>
+          <span class="tag">Scalar</span>
+        </div>
+        <p class="exhibit">Canadian Comparative Literature Association Annual Conference, 2025 &middot; Interactive Film and Media Conference, 2025</p>
+        <a href="https://scalar.rula.info/water-songs-documenting-the-imperceptible/index" target="_blank" class="plink">Visit Project Site &#8599;</a>
+      </div>
+    </div>
+
+    <!-- PROJECT 2: FIRE AND WATER — image slideshow -->
+    <div class="pc">
+      <div class="pm" onclick="window.open('https://drmoniquet.github.io/FireandWater/','_blank')">
+        <div class="fw-slides" id="fwSlides">
+          <img src="Fireandwater1.jpeg" alt="Fire and Water 1" class="fw-active">
+          <img src="FireandWater2.JPG" alt="Fire and Water 2">
+          <img src="Fireandwater3.JPG" alt="Fire and Water 3">
+          <img src="FireandWater4.JPG" alt="Fire and Water 4">
+        </div>
+        <div class="fw-dots" id="fwDots">
+          <button class="fw-dot fw-a" data-fw="0" aria-label="Image 1"></button>
+          <button class="fw-dot" data-fw="1" aria-label="Image 2"></button>
+          <button class="fw-dot" data-fw="2" aria-label="Image 3"></button>
+          <button class="fw-dot" data-fw="3" aria-label="Image 4"></button>
+        </div>
+      </div>
+      <div class="pb">
+        <span class="pc2">Monique Tschofen &amp; Jolene Armstrong &middot; ELO 2025</span>
+        <h3 class="pt">Fire and Water</h3>
+        <p class="pd">A diptych installation exhibited at ELO 2025. Tschofen's kinetic poetry &mdash; generated by a Markov model trained on the <em>New York Times</em> live feed of the Palisades Fire and rendered over watercolors of viral fire footage &mdash; meets Armstrong's sculpture of water resting on an encyclopedia entry on erosion: what isn't burning in a world on fire is flooding. Together the works address the climate crisis, disaster media, and thirsty AIs.</p>
+        <div class="ptags">
+          <span class="tag">Installation</span>
+          <span class="tag">Kinetic poetry</span>
+          <span class="tag">Disaster media</span>
+          <span class="tag">AI &amp; climate</span>
+        </div>
+        <p class="exhibit">Electronic Literature Organization Media Arts Festival, 2025 &middot; English Faculty Research Showcase, Toronto Metropolitan University, 2026</p>
+        <a href="https://drmoniquet.github.io/FireandWater/" target="_blank" class="plink">Learn More &#8599;</a>
+      </div>
+    </div>
+
+    <!-- PROJECT 3: SOLASTALGIA -->
+    <div class="pc">
+      <div class="pm" onclick="window.open('https://scalar.rula.info/solastalgia-documenting-disaster-through-interactive-documentary/index','_blank')">
+        <img src="Solastalgia.png" alt="Solastalgia">
+      </div>
+      <div class="pb">
+        <span class="pc2">Jolene Armstrong &amp; Monique Tschofen &middot; 2025</span>
+        <h3 class="pt">Solastalgia</h3>
+        <p class="pd">An interactive documentary anchored in theories of embodiment &mdash; asking what our bodies already know about climate change. Drawing on Albrecht's concept of solastalgia (the distress caused by environmental change) and Walter Benjamin's <em>Passagenwerk</em>, this intertextual Scalar assemblage weaves bookmaking, watercoloring, embodied filmmaking, and augmented reality into a living, data-driven response to the polycrisis.</p>
+        <div class="ptags">
+          <span class="tag">Interactive documentary</span>
+          <span class="tag">Embodiment</span>
+          <span class="tag">Augmented reality</span>
+          <span class="tag">Scalar</span>
+        </div>
+        <a href="https://scalar.rula.info/solastalgia-documenting-disaster-through-interactive-documentary/index" target="_blank" class="plink">Visit Project Site &#8599;</a>
+      </div>
+    </div>
+
+    <!-- PROJECT 4: AQUAPHORIA -->
+    <div class="pc">
+      <div class="pm" onclick="window.open('https://decameroncollectiv.wixsite.com/mysite-1','_blank')">
+        <div class="fw-slides" id="aqSlides">
+          <img src="aquaphoria1.png" alt="Aquaphoria 1" class="fw-active">
+          <img src="aquaphoria2.png" alt="Aquaphoria 2">
+          <img src="Aquaphoria3.png" alt="Aquaphoria 3">
+        </div>
+        <div class="fw-dots" id="aqDots">
+          <button class="fw-dot fw-a" data-aq="0" aria-label="Image 1"></button>
+          <button class="fw-dot" data-aq="1" aria-label="Image 2"></button>
+          <button class="fw-dot" data-aq="2" aria-label="Image 3"></button>
+        </div>
+      </div>
+      <div class="pb">
+        <span class="pc2">Monique Tschofen &middot; Sound: Hendrick de Haan &middot; 2025</span>
+        <h3 class="pt">Aquaphoria</h3>
+        <p class="pd">A poetic environmental documentary in five chapters tracing the filmmaker's encounters with water &mdash; from the bubbling rivers of Asheville, North Carolina to the Californian seashore to the fjords and glaciers of Alaska. At once ecstatic and grieving, <em>Aquaphoria</em> argues that we need new vocabularies to capture the intimate scales of the climate emergency.</p>
+        <div class="ptags">
+          <span class="tag">Documentary</span>
+          <span class="tag">Ecopoetics</span>
+          <span class="tag">Water</span>
+          <span class="tag">Sound art</span>
+        </div>
+        <a href="https://decameroncollectiv.wixsite.com/mysite-1" target="_blank" class="plink">Visit Project Site &#8599;</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<section id="contact" style="text-align:center">
+  <p class="slbl">Contact</p>
+  <h2 class="stit">Get in Touch</h2>
+  <p class="sbod" style="margin:0 auto 2.5rem">We welcome inquiries from researchers, artists, institutions, and community partners.</p>
+  <a href="mailto:wildrosecollective@protonmail.com" class="btn1">Send Us an Email</a>
+</section>
+
+<footer>
+  <div>
+    <p class="fw-label">Wildrose Collective</p>
+    <p class="fs">A feminist environmental research-creation group working at the intersection of art, science, and ecological urgency.</p>
+  </div>
+  <div class="fr">
+    <p class="fss">Funded by the Social Sciences and Humanities Research Council of Canada</p>
+    <p class="fc">&copy; 2025 Wildrose Collective</p>
+  </div>
+</footer>
+
+<script>
+// TEAM SLIDESHOW
+const track=document.getElementById('track');
+const dotsEl=document.querySelectorAll('.dot');
+const lbl=document.getElementById('slideLabel');
+let cur=0,tot=6,timer;
+function goTo(n){
+  cur=(n+tot)%tot;
+  track.style.transform='translateX(-'+(cur*100)+'%)';
+  dotsEl.forEach((d,i)=>d.classList.toggle('a',i===cur));
+  lbl.textContent='Research Team \u2014 '+(cur+1)+' of '+tot;
+  clearInterval(timer);
+  timer=setInterval(()=>goTo(cur+1),7000);
+}
+document.getElementById('nextBtn').addEventListener('click',()=>goTo(cur+1));
+document.getElementById('prevBtn').addEventListener('click',()=>goTo(cur-1));
+dotsEl.forEach(d=>d.addEventListener('click',()=>goTo(+d.dataset.i)));
+timer=setInterval(()=>goTo(cur+1),7000);
+
+// FIRE AND WATER IMAGE SLIDESHOW
+const fwImgs=document.querySelectorAll('#fwSlides img');
+const fwDotBtns=document.querySelectorAll('#fwDots .fw-dot');
+let fwCur=0,fwTimer;
+function fwGoTo(n){
+  fwImgs[fwCur].classList.remove('fw-active');
+  fwDotBtns[fwCur].classList.remove('fw-a');
+  fwCur=(n+fwImgs.length)%fwImgs.length;
+  fwImgs[fwCur].classList.add('fw-active');
+  fwDotBtns[fwCur].classList.add('fw-a');
+}
+fwDotBtns.forEach(b=>b.addEventListener('click',function(e){
+  e.stopPropagation();
+  clearInterval(fwTimer);
+  fwGoTo(+this.dataset.fw);
+  fwTimer=setInterval(()=>fwGoTo(fwCur+1),3500);
+}));
+fwTimer=setInterval(()=>fwGoTo(fwCur+1),3500);
+
+// AQUAPHORIA IMAGE SLIDESHOW
+const aqImgs=document.querySelectorAll('#aqSlides img');
+const aqDotBtns=document.querySelectorAll('#aqDots .fw-dot');
+let aqCur=0,aqTimer;
+function aqGoTo(n){
+  aqImgs[aqCur].classList.remove('fw-active');
+  aqDotBtns[aqCur].classList.remove('fw-a');
+  aqCur=(n+aqImgs.length)%aqImgs.length;
+  aqImgs[aqCur].classList.add('fw-active');
+  aqDotBtns[aqCur].classList.add('fw-a');
+}
+aqDotBtns.forEach(b=>b.addEventListener('click',function(e){
+  e.stopPropagation();
+  clearInterval(aqTimer);
+  aqGoTo(+this.dataset.aq);
+  aqTimer=setInterval(()=>aqGoTo(aqCur+1),3500);
+}));
+aqTimer=setInterval(()=>aqGoTo(aqCur+1),3500);
+
+// WATER SONGS IMAGE SLIDESHOW
+const wsImgs=document.querySelectorAll('#wsSlides img');
+const wsDotBtns=document.querySelectorAll('#wsDots .fw-dot');
+let wsCur=0,wsTimer;
+function wsGoTo(n){
+  wsImgs[wsCur].classList.remove('fw-active');
+  wsDotBtns[wsCur].classList.remove('fw-a');
+  wsCur=(n+wsImgs.length)%wsImgs.length;
+  wsImgs[wsCur].classList.add('fw-active');
+  wsDotBtns[wsCur].classList.add('fw-a');
+}
+wsDotBtns.forEach(b=>b.addEventListener('click',function(e){
+  e.stopPropagation();
+  clearInterval(wsTimer);
+  wsGoTo(+this.dataset.ws);
+  wsTimer=setInterval(()=>wsGoTo(wsCur+1),3500);
+}));
+wsTimer=setInterval(()=>wsGoTo(wsCur+1),3500);
+</script>
+</body>
+</html>
